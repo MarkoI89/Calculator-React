@@ -1,49 +1,43 @@
-
 import './App.css';
 import {useState} from "react"
+import Standard from './components/Standard.jsx';
+import Length from "./components/Length.jsx"
 
 function App() {
-  const [ secondaryInput, setSecondaryInput ] = useState("")
-  const [ inputValue, setInputValue ] = useState("")
+  const [ menu, setMenu ] = useState(null)
+  const [ mod, setMod ] = useState("Standard")
+
+  const handleStandard = () => {
+    setMenu(null);
+    setMod("Standard")
+  }
+  
+  const handleLength = () => {
+    setMenu(null); 
+    setMod("Length") 
+  }
+  
+
 
   return (
     <div className="App">
-      <div>
-        <input value={secondaryInput}></input>
-        <input value={inputValue}></input>
+      <div className='header' >
+        <div onClick={() => setMenu(true)} className='menu'>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <h3 style={{color: "white"}} >{mod}</h3>
       </div>
-      <div className='buttonsContainer' >
-        <div className='buttons'>
-          <button onClick={() => setInputValue(inputValue.slice(0, -1))} >C</button>
-          <button onClick={() => setInputValue(inputValue.concat("("))} >(</button>
-          <button onClick={() => setInputValue(inputValue.concat(")"))} > ) </button>
-          <button onClick={() => setInputValue(inputValue.concat("/"))} >/</button>
-        </div>
-        <div className='buttons' >
-          <button onClick={() => setInputValue(inputValue.concat(7))} >7</button>
-          <button onClick={() => setInputValue(inputValue.concat(8))} >8</button>
-          <button onClick={() => setInputValue(inputValue.concat(9))} >9</button>
-          <button onClick={() => setInputValue(inputValue.concat("*"))}>x</button>
-        </div>
-        <div className='buttons' >
-          <button onClick={() => setInputValue(inputValue.concat(4))} >4</button>
-          <button onClick={() => setInputValue(inputValue.concat(5))} >5</button>
-          <button onClick={() => setInputValue(inputValue.concat(6))} >6</button>
-          <button onClick={() => setInputValue(inputValue.concat("-"))} >-</button>
-        </div>
-        <div className='buttons' >
-          <button onClick={() => setInputValue(inputValue.concat(1))} >1</button>
-          <button onClick={() => setInputValue(inputValue.concat(2))} >2</button>
-          <button onClick={() => setInputValue(inputValue.concat(3))} >3</button>
-          <button onClick={() => setInputValue(inputValue.concat("+"))} >+</button>
-        </div>
-        <div className='buttons' >
-          {/* <button onClick={() => setInputValue(Math.sqrt(inputValue))} >√</button> */}
-          <button onClick={() => setInputValue("")} >AC</button>
-          <button onClick={() => setInputValue(inputValue.concat(0))} >0</button>
-          <button onClick={() => setInputValue(inputValue.concat("."))} >.</button>
-          <button onClick={() => setInputValue(eval(inputValue))} >=</button>
-        </div>
+      {menu && <div className='modalMenu' >
+        <li onClick={handleStandard} >Standard</li>
+        <li>Advanced</li>
+        <p>Convert</p>
+        <li onClick={handleLength} >Length</li>
+      </div>}
+      <div>
+        {mod === "Standard" && <Standard />}
+        {mod === "Length" && <Length />}
       </div>
     </div>
   );
