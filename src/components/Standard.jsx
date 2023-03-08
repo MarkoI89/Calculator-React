@@ -49,7 +49,6 @@ function Standard() {
           <button style={{color: "orange"}} onClick={() => setInputValue(inputValue.concat("+"))} >+</button>
         </div>
         <div className='buttons' >
-          {/* <button onClick={() => setInputValue(Math.sqrt(inputValue))} >√</button> */}
           <button style={{color: "orange"}} onClick={handleReset} >AC</button>
           <button onClick={() => setInputValue(inputValue.concat(0))} >0</button>
           <button onClick={() => setInputValue(inputValue.concat("."))} >.</button>

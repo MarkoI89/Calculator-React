@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   width: 300px;
-  /* height: 360px; */
+  height: auto;
   position: absolute;
   right: 40%;
   top: 25%;
@@ -15,7 +15,7 @@
 
 .secondaryInput{
   width: 290px;
-  height: 30px;
+  height: 50px;
   background-color: rgb(37, 35, 35);
   border: none;
   color: rgb(120, 120, 120);
@@ -23,7 +23,7 @@
 
 .mainInput{
   width: 290px;
-  height: 65px;
+  height: 85px;
   background-color: rgb(37, 35, 35);
   border: none;
   color: white;
@@ -36,32 +36,39 @@
   height: 46px;
   background-color: rgb(59, 65, 70);
   color: white;
-  /* border: 1px solid rgb(245, 246, 246); */
   border: none;
   border-radius: 5px;
+}
+
+.App button:hover{
+  background-color: rgb(48, 52, 56);
 }
 
 .buttonsContainer{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 250px;
 }
 
 .buttons{
   display: flex;
   justify-content: space-around;
+  padding: 2px;
 }
 
 .menu{
   padding-right: 15px;
 }
 
+.menu h3{
+  font-size: 14px;
+}
+
 .menu div{
   background-color: #7a7a7a;
-  height: 3px;
-  margin: 6px 0;
-  width: 30px;
+  height: 2px;
+  margin: 4px 0;
+  width: 20px;
 }
 
 .header{
@@ -85,6 +92,7 @@
   list-style-type: none;
 }
 
+
 .modalMenu p {
   color: #7a7a7a;
 }
@@ -93,12 +101,24 @@
   cursor: pointer;
 }
 
+.modalMenu li:hover {
+  background-color: rgba(117, 146, 166, 0.5);;
+}
+
 .lengthInput{
   width: 290px;
-  height: 45px;
+  height: 65px;
   background-color: rgb(37, 35, 35);
   border: none;
   color: white;
   font-size: 35px;
   font-weight: 400;
+}
+
+.lengthOption{
+  background-color: rgb(37, 35, 35);
+  color: white;
+  border: none;
+  position: relative;
+  right: 100px;
 }

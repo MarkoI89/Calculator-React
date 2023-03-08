@@ -10,9 +10,32 @@ export default function Length(){
     useEffect(() => {
         if(option1 === "meter" && option2 === "centimeter"){
             setSecondLengthInput(parseInt(lengthInput) * 1000)
-            console.log(parseInt(lengthInput) * 1000)
+        // centimeters to ....
         } else if(option1 === "centimeter" && option2 === "meter"){
             setSecondLengthInput(parseInt(lengthInput) * 0.01)
+        } else if(option1 === "centimeter" && option2 === "inch"){
+          setSecondLengthInput(parseInt(lengthInput) / 2.54)
+        } else if(option1 === "centimeter" && option2 === "kilometer"){
+          setSecondLengthInput(parseInt(lengthInput) /100000)
+        // inches to ....
+        } else if(option1 === "inch" && option2 === "centimeter"){
+          setSecondLengthInput(parseInt(lengthInput) * 2.54)
+        } else if(option1 === "inch" && option2 === "meter"){
+          setSecondLengthInput(parseInt(lengthInput) / 39.37)
+        } else if(option1 === "inch" && option2 === "kilometer"){
+          setSecondLengthInput(parseInt(lengthInput) / 393.70)
+          // meters to ....
+        } else if(option1 === "meter" && option2 === "inch"){
+          setSecondLengthInput(parseInt(lengthInput) * 39.37)
+        } else if(option1 === "meter" && option2 === "kilometer"){
+          setSecondLengthInput(parseInt(lengthInput) * 1000)
+          // kilometers to ....
+        } else if(option1 === "kilometer" && option2 === "centimeter"){
+          setSecondLengthInput(parseInt(lengthInput) * 100000)
+        } else if(option1 === "kilometer" && option2 === "meter"){
+          setSecondLengthInput(parseInt(lengthInput) * 1000)
+        } else if(option1 === "kilometer" && option2 === "inch"){
+          setSecondLengthInput(parseInt(lengthInput) * 39370.1)
         }
     },[lengthInput, option1, option2])
 
@@ -24,18 +47,21 @@ export default function Length(){
     return(
         <div>
             <input disabled="true" className='lengthInput' value={lengthInput}></input>
-            <select>
-                <option onClick={() => {setOption1("centimeter")}} >centimeter</option>
-                <option onClick={() => {setOption1("meter")}} >meter</option>
+            <select className="lengthOption" >
+                <option  onClick={() => {setOption1("centimeter")}} >centimeter</option>
+                <option  onClick={() => {setOption1("meter")}} >meter</option>
+                <option  onClick={() => {setOption1("kilometer")}} >kilometer</option>
+                <option  onClick={() => {setOption1("inch")}} >inch</option>
             </select> 
             <input disabled="true" className='lengthInput' value={secondLengthInput}></input>
-            <select>
-                <option onClick={() => {setOption2("centimeter")}} >centimeter</option>
-                <option onClick={() => {setOption2("meter")}} >meter</option>
+            <select className="lengthOption" >
+                <option  onClick={() => {setOption2("centimeter")}} >centimeter</option>
+                <option  onClick={() => {setOption2("meter")}} >meter</option>
+                <option  onClick={() => {setOption2("kilometer")}} >kilometer</option>
+                <option  onClick={() => {setOption2("inch")}} >inch</option>
             </select>
             <div className='buttonsContainer' >
         <div className='buttons'>
-          <button style={{color: "orange"}} onClick={() => setLengthInput(lengthInput.slice(0, -1))} >C</button>
         </div>
         <div className='buttons' >
           <button onClick={() => setLengthInput(lengthInput.concat(7))} >7</button>
@@ -52,14 +78,13 @@ export default function Length(){
           <button onClick={() => setLengthInput(lengthInput.concat(2))} >2</button>
           <button onClick={() => setLengthInput(lengthInput.concat(3))} >3</button>
         </div>
-        <div className='buttons' >
-          {/* <button onClick={() => setLengthInput(Math.sqrt(lengthInput))} >√</button> */}
-          <button style={{color: "orange"}} onClick={resetLengthInput} >AC</button>
-          <button onClick={() => setLengthInput(lengthInput.concat(0))} >0</button>
-          <button onClick={() => setLengthInput(lengthInput.concat("."))} >.</button>
-          {/* <button style={{color: "orange"}} onClick={handleResult} >=</button> */}
+          <div className='buttons' >
+            <button style={{color: "orange"}} onClick={resetLengthInput} >AC</button>
+            <button style={{color: "orange"}} onClick={() => setLengthInput(lengthInput.slice(0, -1))} >C</button>
+            <button onClick={() => setLengthInput(lengthInput.concat(0))} >0</button>
+            <button onClick={() => setLengthInput(lengthInput.concat("."))} >.</button>
+          </div>
         </div>
       </div>
-        </div>
     )
 }
