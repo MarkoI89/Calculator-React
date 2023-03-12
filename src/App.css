@@ -9,11 +9,11 @@
   border-radius: 5px;
 }
 
-.App h3{
+.App h3 {
   margin: 0;
 }
 
-.secondaryInput{
+.secondaryInput {
   width: 290px;
   height: 50px;
   background-color: rgb(37, 35, 35);
@@ -21,7 +21,7 @@
   color: rgb(120, 120, 120);
 }
 
-.mainInput{
+.mainInput {
   width: 290px;
   height: 85px;
   background-color: rgb(37, 35, 35);
@@ -40,44 +40,44 @@
   border-radius: 5px;
 }
 
-.App button:hover{
+.App button:hover {
   background-color: rgb(48, 52, 56);
 }
 
-.buttonsContainer{
+.buttonsContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.buttons{
+.buttons {
   display: flex;
   justify-content: space-around;
   padding: 2px;
 }
 
-.menu{
+.menu {
   padding-right: 15px;
 }
 
-.menu h3{
+.menu h3 {
   font-size: 14px;
 }
 
-.menu div{
+.menu div {
   background-color: #7a7a7a;
   height: 2px;
   margin: 4px 0;
   width: 20px;
 }
 
-.header{
+.header {
   display: flex;
   justify-content: flex-start;
   padding: 10px;
 }
 
-.modalMenu{
+.modalMenu {
   position: absolute;
   top: 0px;
   font-size: 30px;
@@ -92,7 +92,6 @@
   list-style-type: none;
 }
 
-
 .modalMenu p {
   color: #7a7a7a;
 }
@@ -102,10 +101,10 @@
 }
 
 .modalMenu li:hover {
-  background-color: rgba(117, 146, 166, 0.5);;
+  background-color: rgba(117, 146, 166, 0.5);
 }
 
-.lengthInput{
+.lengthInput {
   width: 290px;
   height: 65px;
   background-color: rgb(37, 35, 35);
@@ -115,10 +114,63 @@
   font-weight: 400;
 }
 
-.lengthOption{
+.lengthOption {
   background-color: rgb(37, 35, 35);
   color: white;
   border: none;
   position: relative;
   right: 100px;
+}
+
+.memory {
+  list-style: none;
+  color: white;
+  display: flex;
+  background-color: transparent;
+}
+
+.memoryModal {
+  width: 300px;
+  height: 250px;
+  background-color: #3b3b3b;
+  z-index: 998;
+  position: absolute;
+  bottom: 0px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.advancedMemoryModal{
+  width: 300px;
+  height: 300px;
+  background-color: #3b3b3b;
+  z-index: 998;
+  position: absolute;
+  bottom: 0px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.memoryContainer {
+  display: flex;
+  flex-direction: column;
+  height: 30px;
+}
+
+.memoryContainer:hover {
+  background-color: #303030;
+}
+
+.memoryContainer p {
+  position: absolute;
+  right: 30px;
+  margin: 0px;
+}
+
+.memoryContainer svg {
+  position: relative;
+  top: 5px;
+  left: 140px;
 }
