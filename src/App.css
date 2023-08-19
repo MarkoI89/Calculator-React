@@ -3,8 +3,10 @@
   width: 300px;
   height: auto;
   position: absolute;
-  right: 40%;
-  top: 25%;
+  right: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: rgb(37, 35, 35);
   border-radius: 5px;
 }

@@ -7,27 +7,33 @@ import Weight from './components/Weight';
 
 function App() {
   const [ menu, setMenu ] = useState(null)      //opens menu with different options 
-  const [ mod, setMod ] = useState("Standard")  //set active mode (standard, advanced, length, width)
+  const [ mod, setMod ] = useState("standard")  //set active mode (standard, advanced, length, width)
 
   const handleStandard = () => {   //close menu and opens standard mode
     setMenu(null);
-    setMod("Standard")
+    setMod("standard")
   }
   
   const handleAdvanced = () => {  
     setMenu(null); 
-    setMod("Advanced") 
+    setMod("advanced") 
   }
 
   const handleLength = () => {
     setMenu(null); 
-    setMod("Length") 
+    setMod("length") 
   }
 
   const handleWeight = () => {
     setMenu(null); 
-    setMod("Weight") 
+    setMod("weight") 
   }
+
+  const handleCurrency = () => {
+    setMenu(null); 
+    setMod("currency") 
+  }
+
 
   
 
@@ -49,12 +55,13 @@ function App() {
         <p>Convert</p>
         <li onClick={handleLength} >Length</li>
         <li onClick={handleWeight} >Weight</li>
+        {/* <li onClick={handleCurrency} >Currency</li> */}
       </div>}
       <div>
-        {mod === "Standard" && <Standard />}
-        {mod === "Advanced" && <Advanced />}
-        {mod === "Length" && <Length />}
-        {mod === "Weight" && <Weight />}
+        {mod === "standard" && <Standard />}
+        {mod === "advanced" && <Advanced />}
+        {mod === "length" && <Length />}
+        {mod === "weight" && <Weight />}
       </div>
     </div>
   );
