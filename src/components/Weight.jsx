@@ -76,11 +76,17 @@ export default function Weight() {
           onClick={() => {
             setOption1("gram");
           }}
+          onChange={() => {
+            setOption1("gram");
+          }}
         >
           gram
         </option>
         <option
           onClick={() => {
+            setOption1("kilogram");
+          }}
+          onChange={() => {
             setOption1("kilogram");
           }}
         >
@@ -90,6 +96,9 @@ export default function Weight() {
           onClick={() => {
             setOption1("tonne");
           }}
+          onChange={() => {
+            setOption1("tonne");
+          }}
         >
           tonne
         </option>
@@ -97,11 +106,17 @@ export default function Weight() {
           onClick={() => {
             setOption1("ounce");
           }}
+          onChange={() => {
+            setOption1("ounce");
+          }}
         >
           ounce
         </option>
         <option
           onClick={() => {
+            setOption1("pound");
+          }}
+          onChange={() => {
             setOption1("pound");
           }}
         >
@@ -118,11 +133,17 @@ export default function Weight() {
           onClick={() => {
             setOption2("gram");
           }}
+          onChange={() => {
+            setOption2("gram");
+          }}
         >
           gram
         </option>
         <option
           onClick={() => {
+            setOption2("kilogram");
+          }}
+          onChange={() => {
             setOption2("kilogram");
           }}
         >
@@ -132,6 +153,9 @@ export default function Weight() {
           onClick={() => {
             setOption2("tonne");
           }}
+          onChange={() => {
+            setOption2("tonne");
+          }}
         >
           tonne
         </option>
@@ -139,11 +163,17 @@ export default function Weight() {
           onClick={() => {
             setOption2("ounce");
           }}
+          onChange={() => {
+            setOption2("ounce");
+          }}
         >
           ounce
         </option>
         <option
           onClick={() => {
+            setOption2("pound");
+          }}
+          onChange={() => {
             setOption2("pound");
           }}
         >

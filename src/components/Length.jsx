@@ -98,11 +98,17 @@ export default function Length() {
           onClick={() => {
             setOption1("centimeter");
           }}
+          onChange={() => {
+            setOption1("centimeter");
+          }}
         >
           centimeter
         </option>
         <option
           onClick={() => {
+            setOption1("meter");
+          }}
+          onChange={() => {
             setOption1("meter");
           }}
         >
@@ -112,11 +118,17 @@ export default function Length() {
           onClick={() => {
             setOption1("kilometer");
           }}
+          onChange={() => {
+            setOption1("kilometer");
+          }}
         >
           kilometer
         </option>
         <option
           onClick={() => {
+            setOption1("inch");
+          }}
+          onChange={() => {
             setOption1("inch");
           }}
         >
@@ -126,11 +138,17 @@ export default function Length() {
           onClick={() => {
             setOption1("feet");
           }}
+          onChange={() => {
+            setOption1("feet");
+          }}
         >
           feet
         </option>
         <option
           onClick={() => {
+            setOption1("mile");
+          }}
+          onChange={() => {
             setOption1("mile");
           }}
         >
@@ -147,11 +165,17 @@ export default function Length() {
           onClick={() => {
             setOption2("centimeter");
           }}
+          onChange={() => {
+            setOption2("centimeter");
+          }}
         >
           centimeter
         </option>
         <option
           onClick={() => {
+            setOption2("meter");
+          }}
+          onChange={() => {
             setOption2("meter");
           }}
         >
@@ -161,11 +185,17 @@ export default function Length() {
           onClick={() => {
             setOption2("kilometer");
           }}
+          onChange={() => {
+            setOption2("kilometer");
+          }}
         >
           kilometer
         </option>
         <option
           onClick={() => {
+            setOption2("inch");
+          }}
+          onChange={() => {
             setOption2("inch");
           }}
         >
@@ -175,11 +205,17 @@ export default function Length() {
           onClick={() => {
             setOption2("feet");
           }}
+          onChange={() => {
+            setOption2("feet");
+          }}
         >
           feet
         </option>
         <option
           onClick={() => {
+            setOption2("mile");
+          }}
+          onChange={() => {
             setOption2("mile");
           }}
         >
