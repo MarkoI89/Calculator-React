@@ -118,10 +118,17 @@
 
 .lengthOption {
   background-color: rgb(37, 35, 35);
+  border: 1px solid white;
   color: white;
   border: none;
   position: relative;
-  right: 100px;
+  right: -25px;
+  width: 95px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  height: 25px;
 }
 
 .memory {
@@ -143,7 +150,7 @@
   flex-direction: column;
 }
 
-.advancedMemoryModal{
+.advancedMemoryModal {
   width: 300px;
   height: 300px;
   background-color: #3b3b3b;
@@ -175,4 +182,31 @@
   position: relative;
   top: 5px;
   left: 140px;
+}
+
+.optionsModal{
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 90px;
+  background-color: rgb(37, 35, 35);
+  color: white;
+  length: 100px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  position: fixed;
+  top: 135px;
+  left: 10px;
+  align-items: flex-start;
+  padding-bottom: 7px
+}
+
+.weightOption{
+  padding: 3px 0px 3px 0px;
+  width: 100%
+}
+
+.weightOption:hover{
+  background-color: #959595;
+  cursor: pointer;
 }

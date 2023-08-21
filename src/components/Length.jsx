@@ -5,6 +5,8 @@ export default function Length() {
   const [secondLengthInput, setSecondLengthInput] = useState("");
   const [option1, setOption1] = useState("centimeter");
   const [option2, setOption2] = useState("centimeter");
+  const [optionsModel1, setOptionsModel1] = useState(null);
+  const [optionsModel2, setOptionsModel2] = useState(null)
 
   useEffect(() => {
     if (lengthInput === "") {
@@ -29,18 +31,18 @@ export default function Length() {
     } else if (option1 === "inch" && option2 === "meter") {
       setSecondLengthInput(parseInt(lengthInput) / 39.37);
     } else if (option1 === "inch" && option2 === "kilometer") {
-      setSecondLengthInput(parseInt(lengthInput) / 393.7);
+      setSecondLengthInput(parseInt(lengthInput) / 39370.1 );
     } else if (option1 === "inch" && option2 === "feet") {
       setSecondLengthInput(parseInt(lengthInput) / 12);
     } else if (option1 === "inch" && option2 === "mile") {
-      setSecondLengthInput(parseInt(lengthInput) / 63.36);
+      setSecondLengthInput(parseInt(lengthInput) / 63360);
       // meters to ...
     } else if (option1 === "meter" && option2 === "centimeter") {
-      setSecondLengthInput(parseInt(lengthInput) * 1000);
+      setSecondLengthInput(parseInt(lengthInput) * 100);
     } else if (option1 === "meter" && option2 === "inch") {
       setSecondLengthInput(parseInt(lengthInput) * 39.37);
     } else if (option1 === "meter" && option2 === "kilometer") {
-      setSecondLengthInput(parseInt(lengthInput) * 1000);
+      setSecondLengthInput(parseInt(lengthInput) / 1000);
     } else if (option1 === "meter" && option2 === "feet") {
       setSecondLengthInput(parseInt(lengthInput) * 3.28084);
     } else if (option1 === "meter" && option2 === "mile") {
@@ -60,7 +62,7 @@ export default function Length() {
     } else if (option1 === "feet" && option2 === "centimeter") {
       setSecondLengthInput(parseInt(lengthInput) * 30.48);
     } else if (option1 === "feet" && option2 === "meter") {
-      setSecondLengthInput(parseInt(lengthInput) * 3.28084);
+      setSecondLengthInput(parseInt(lengthInput) * 0.3048);
     } else if (option1 === "feet" && option2 === "kilometer") {
       setSecondLengthInput(parseInt(lengthInput) / 3280.8398950131);
     } else if (option1 === "feet" && option2 === "inch") {
@@ -69,7 +71,7 @@ export default function Length() {
       setSecondLengthInput(parseInt(lengthInput) * 0.0001894);
       // mile to ....
     } else if (option1 === "mile" && option2 === "centimeter") {
-      setSecondLengthInput(parseInt(lengthInput) * 160934.4);
+      setSecondLengthInput(parseInt(lengthInput) * 160.934);
     } else if (option1 === "mile" && option2 === "meter") {
       setSecondLengthInput(parseInt(lengthInput) * 1609.344);
     } else if (option1 === "mile" && option2 === "kilometer") {
@@ -86,6 +88,35 @@ export default function Length() {
     setSecondLengthInput("");
   };
 
+  const options = ["centimeter", "meter", "kilometer", "inch", "feet", "mile"];
+  const lengthOptions = options.map((i) => {
+    return (
+      <div
+        className="weightOption"
+        onClick={() => {
+          setOption1(`${i}`);
+          setOptionsModel1(null);
+        }}
+      >
+        {i}
+      </div>
+    );
+  });
+
+  const lengthOptions2 = options.map((i) => {
+    return (
+      <div
+        className="weightOption"
+        onClick={() => {
+          setOption2(`${i}`);
+          setOptionsModel2(null);
+        }}
+      >
+        {i}
+      </div>
+    );
+  });
+
   return (
     <div>
       <input
@@ -93,7 +124,11 @@ export default function Length() {
         className="lengthInput"
         value={lengthInput}
       ></input>
-      <select className="lengthOption">
+       <div onClick={() => !optionsModel1 ? setOptionsModel1(true) : setOptionsModel1(null) } className="lengthOption">
+        <div>{option1}</div><div>˅</div>
+      </div>
+      {optionsModel1 && <div className="optionsModal">{lengthOptions}</div>}
+      {/* <select className="lengthOption">
         <option
           onClick={() => {
             setOption1("centimeter");
@@ -154,13 +189,17 @@ export default function Length() {
         >
           mile
         </option>
-      </select>
+      </select> */}
       <input
         disabled="true"
         className="lengthInput"
         value={secondLengthInput}
       ></input>
-      <select className="lengthOption">
+            <div onClick={() => !optionsModel2 ? setOptionsModel2(true) : setOptionsModel2(null) } className="lengthOption">
+        <div>{option2}</div><div>˅</div>
+      </div>
+      {optionsModel2 && <div className="optionsModal">{lengthOptions2}</div>}
+      {/* <select className="lengthOption">
         <option
           onClick={() => {
             setOption2("centimeter");
@@ -221,7 +260,7 @@ export default function Length() {
         >
           mile
         </option>
-      </select>
+      </select> */}
       <div className="buttonsContainer">
         <div className="buttons"></div>
         <div className="buttons">

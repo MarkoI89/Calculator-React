@@ -1,28 +1,31 @@
 import { useState, useEffect } from "react";
 
 export default function Weight() {
-  const [weightInput, setWeightInput] = useState("");                // given value for first weight option
-  const [secondWeightInput, setSecondWeightInput] = useState("");    // result of conversion between option1 and option2  
-  const [option1, setOption1] = useState("gram");                    // select first weight option
-  const [option2, setOption2] = useState("gram");                    // select second weight option
+  const [weightInput, setWeightInput] = useState(""); // given value for first weight option
+  const [secondWeightInput, setSecondWeightInput] = useState(""); // result of conversion between option1 and option2
+  const [option1, setOption1] = useState("gram"); // select first weight option
+  const [option2, setOption2] = useState("gram"); // select second weight option
+  const [optionsModel1, setOptionsModel1] = useState(null);
+  const [optionsModel2, setOptionsModel2] = useState(null)
 
   const resetWeightInput = () => {
     setWeightInput("");
     setSecondWeightInput("");
   };
 
-  useEffect(() => {                               //gives the result just after input value or options get changed
+  useEffect(() => {
+    //gives the result just after input value or options get changed
     if (weightInput === "") {
       setSecondWeightInput("");
     } else if (option1 === option2) {
       setSecondWeightInput(parseInt(weightInput));
       // grams to ....
     } else if (option1 === "gram" && option2 === "kilogram") {
-      setSecondWeightInput(parseInt(weightInput) * 0.001);      // input values are type of string by default and they have to be changed to type of number before calculations
+      setSecondWeightInput(parseInt(weightInput) * 0.001); // input values are type of string by default and they have to be changed to type of number before calculations
     } else if (option1 === "gram" && option2 === "ounce") {
       setSecondWeightInput(parseInt(weightInput) * 0.035274);
     } else if (option1 === "gram" && option2 === "tonne") {
-      setSecondWeightInput(parseInt(weightInput) *0.000001);
+      setSecondWeightInput(parseInt(weightInput) * 0.000001);
     } else if (option1 === "gram" && option2 === "pound") {
       setSecondWeightInput(parseInt(weightInput) * 0.0022046226);
       // ounces to ....
@@ -64,6 +67,35 @@ export default function Weight() {
     }
   }, [weightInput, option1, option2]);
 
+  const options = ["gram", "kilogram", "tonne", "ounce", "pound"];
+  const weightOptions = options.map((i) => {
+    return (
+      <div
+        className="weightOption"
+        onClick={() => {
+          setOption1(`${i}`);
+          setOptionsModel1(null);
+        }}
+      >
+        {i}
+      </div>
+    );
+  });
+
+  const weightOptions2 = options.map((i) => {
+    return (
+      <div
+        className="weightOption"
+        onClick={() => {
+          setOption2(`${i}`);
+          setOptionsModel2(null);
+        }}
+      >
+        {i}
+      </div>
+    );
+  });
+
   return (
     <div>
       <input
@@ -71,115 +103,19 @@ export default function Weight() {
         className="lengthInput"
         value={weightInput}
       ></input>
-      <select className="lengthOption">
-        <option
-          onClick={() => {
-            setOption1("gram");
-          }}
-          onChange={() => {
-            setOption1("gram");
-          }}
-        >
-          gram
-        </option>
-        <option
-          onClick={() => {
-            setOption1("kilogram");
-          }}
-          onChange={() => {
-            setOption1("kilogram");
-          }}
-        >
-          kilogram
-        </option>
-        <option
-          onClick={() => {
-            setOption1("tonne");
-          }}
-          onChange={() => {
-            setOption1("tonne");
-          }}
-        >
-          tonne
-        </option>
-        <option
-          onClick={() => {
-            setOption1("ounce");
-          }}
-          onChange={() => {
-            setOption1("ounce");
-          }}
-        >
-          ounce
-        </option>
-        <option
-          onClick={() => {
-            setOption1("pound");
-          }}
-          onChange={() => {
-            setOption1("pound");
-          }}
-        >
-          pound
-        </option>
-      </select>
+      <div onClick={() => !optionsModel1 ? setOptionsModel1(true) : setOptionsModel1(null) } className="lengthOption">
+        <div>{option1}</div><div>˅</div>
+      </div>
+      {optionsModel1 && <div className="optionsModal">{weightOptions}</div>}
       <input
         disabled="true"
         className="lengthInput"
         value={secondWeightInput}
       ></input>
-      <select className="lengthOption">
-        <option
-          onClick={() => {
-            setOption2("gram");
-          }}
-          onChange={() => {
-            setOption2("gram");
-          }}
-        >
-          gram
-        </option>
-        <option
-          onClick={() => {
-            setOption2("kilogram");
-          }}
-          onChange={() => {
-            setOption2("kilogram");
-          }}
-        >
-          kilogram
-        </option>
-        <option
-          onClick={() => {
-            setOption2("tonne");
-          }}
-          onChange={() => {
-            setOption2("tonne");
-          }}
-        >
-          tonne
-        </option>
-        <option
-          onClick={() => {
-            setOption2("ounce");
-          }}
-          onChange={() => {
-            setOption2("ounce");
-          }}
-        >
-          ounce
-        </option>
-        <option
-          onClick={() => {
-            setOption2("pound");
-          }}
-          onChange={() => {
-            setOption2("pound");
-          }}
-        >
-          pound
-        </option>
-      </select>
+      <div onClick={() => !optionsModel2 ? setOptionsModel2(true) : setOptionsModel2(null) } className="lengthOption">
+        <div>{option2}</div><div>˅</div>
+      </div>
+      {optionsModel2 && <div className="optionsModal">{weightOptions2}</div>}
       <div className="buttonsContainer">
         <div className="buttons"></div>
         <div className="buttons">
